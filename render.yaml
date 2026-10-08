@@ -1,6 +1,7 @@
 # Render Blueprint: Postgres + API + web app on the free plan (Singapore is the closest region to India).
 # Public URLs follow the service names. If Render adds a suffix because a name is taken,
 # update NEXT_PUBLIC_API_URL / NEXT_PUBLIC_SITE_URL / FRONTEND_URL to the real URLs and redeploy.
+
 databases:
   - name: agriguard-db
     plan: free
@@ -10,7 +11,7 @@ databases:
 
 services:
   - type: web
-    name: mavestorm-agriguard-api
+    name: agriguard-api
     runtime: node
     plan: free
     region: singapore
@@ -35,10 +36,10 @@ services:
       - key: APP_TIMEZONE
         value: Asia/Kolkata
       - key: FRONTEND_URL
-        value: https://mavestorm-agriguard.onrender.com
+        value: https://agriguard-web.onrender.com
 
   - type: web
-    name: mavestorm-agriguard
+    name: agriguard-web
     runtime: node
     plan: free
     region: singapore
@@ -49,6 +50,6 @@ services:
       - key: NODE_VERSION
         value: "24"
       - key: NEXT_PUBLIC_API_URL
-        value: https://mavestorm-agriguard-api.onrender.com
+        value: https://agriguard-api.onrender.com
       - key: NEXT_PUBLIC_SITE_URL
-        value: https://mavestorm-agriguard.onrender.com
+        value: https://agriguard-web.onrender.com
